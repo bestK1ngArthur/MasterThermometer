@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarItem.button?.imageScaling = .scaleProportionallyUpOrDown
         statusBarItem.button?.imagePosition = .imageLeading
         
-        popover.contentViewController = ViewController.fromStoryboard()
+        popover.contentViewController = BMSTUController.fromStoryboard()
         
         startTimer()
     }
@@ -62,11 +62,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc private func updateCounter() {
-        let count = content.getApplicantsCount(department: "ИУ5")
+        let count = content.getApplicantsCount(department: AppConfig.department)
         
         statusBarItem.button?.title = "\(count)"
 
-        if let controller = popover.contentViewController as? ViewController {
+        if let controller = popover.contentViewController as? BMSTUController {
             controller.updateCounter(count: count)
         }
         
@@ -79,7 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusBarItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             
-            if let controller = popover.contentViewController as? ViewController {
+            if let controller = popover.contentViewController as? BMSTUController {
                 controller.updateCounter(count: lastCount)
             }
         }

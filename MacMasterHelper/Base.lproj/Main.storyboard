@@ -680,10 +680,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--View Controller-->
+        <!--Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController identifier="ViewController" storyboardIdentifier="ViewController" id="XfG-lQ-9wD" customClass="ViewController" customModule="MacMasterHelper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController identifier="BMSTUController" storyboardIdentifier="BMSTUController" id="XfG-lQ-9wD" customClass="BMSTUController" customModule="MacMasterHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="220" height="338"/>
                         <autoresizingMask key="autoresizingMask"/>

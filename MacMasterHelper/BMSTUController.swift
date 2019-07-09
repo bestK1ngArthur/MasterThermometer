@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  BMSTUController.swift
 //  MacMasterHelper
 //
 //  Created by a.belkov on 09/07/2019.
@@ -8,13 +8,13 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class BMSTUController: NSViewController {
 
     @IBOutlet weak var lastUpdateLabel: NSTextField?
     @IBOutlet weak var peopleIndicator: PeopleIndicator?
     @IBOutlet weak var competitionLabel: NSTextField?
     
-    private let maxValue: Int = 43
+    private let maxValue: Int = AppConfig.maxStudentsCount
     
     private var formatter: DateFormatter {
         let formatter = DateFormatter()
@@ -45,14 +45,14 @@ class ViewController: NSViewController {
     }
 }
 
-extension ViewController {
+extension BMSTUController {
 
-    static func fromStoryboard() -> ViewController {
+    static func fromStoryboard() -> BMSTUController {
         
         let storyboard = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-        let identifier = NSStoryboard.SceneIdentifier("ViewController")
-        guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? ViewController else {
-            fatalError("Can't find ViewController in Main.storyboard")
+        let identifier = NSStoryboard.SceneIdentifier(String(describing: BMSTUController.self))
+        guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? BMSTUController else {
+            fatalError("Can't find \(String(describing: BMSTUController.self)) in Main.storyboard")
         }
         return viewcontroller
     }
