@@ -707,6 +707,20 @@
                                     <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AUp-l4-keO">
+                                <rect key="frame" x="194" y="312" width="18" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="maV-Y0-oTu"/>
+                                    <constraint firstAttribute="width" constant="18" id="tXh-hV-NjH"/>
+                                </constraints>
+                                <buttonCell key="cell" type="roundRect" bezelStyle="roundedRect" image="close" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="SdH-qB-5cj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closeButtonTapped:" target="XfG-lQ-9wD" id="5fC-FQ-fy4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="GRn-Sc-Jke" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="55" id="1Jd-vS-fhd"/>
@@ -719,6 +733,8 @@
                             <constraint firstItem="GRn-Sc-Jke" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="35" id="Yf3-Km-yJC"/>
                             <constraint firstAttribute="bottom" secondItem="iGR-4F-WNh" secondAttribute="bottom" constant="20" id="ZhA-D8-JV7"/>
                             <constraint firstAttribute="trailing" secondItem="iGR-4F-WNh" secondAttribute="trailing" constant="20" id="hBt-3s-phb"/>
+                            <constraint firstAttribute="trailing" secondItem="AUp-l4-keO" secondAttribute="trailing" constant="8" id="ry2-gM-fPw"/>
+                            <constraint firstItem="AUp-l4-keO" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="8" id="zAh-TU-8C6"/>
                         </constraints>
                     </view>
                     <connections>
@@ -729,7 +745,10 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60.5" y="684"/>
+            <point key="canvasLocation" x="-61" y="684"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="60" height="60"/>
+    </resources>
 </document>

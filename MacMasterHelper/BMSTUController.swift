@@ -43,6 +43,10 @@ class BMSTUController: NSViewController {
         let competition = (Float(count) / Float(maxValue) * 100).rounded() / 100
         competitionLabel?.stringValue = "Конкурс \(competition) на место"
     }
+    
+    @IBAction func closeButtonTapped(_ sender: Any) {
+        NSApplication.shared.terminate(sender)
+    }
 }
 
 extension BMSTUController {
