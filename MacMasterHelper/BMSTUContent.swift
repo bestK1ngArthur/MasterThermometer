@@ -18,15 +18,44 @@ class BMSTUContent {
         return PDFDocument(url: url)
     }
     
+    func getApplicantsContent(department: String) -> String? {
+        guard var pdfContent = applicantsPDF?.string else { return nil }
+
+        while let foundRange = pdfContent.range(of: "\(department)-И", options: .diacriticInsensitive) {
+            pdfContent = pdfContent.replacingCharacters(in: foundRange, with: "")
+        }
+
+        return pdfContent
+    }
+    
     func getApplicantsCount(department: String) -> Int {
-        guard var pdfContent = applicantsPDF?.string else { return 0 }
+        guard var content = getApplicantsContent(department: department) else { return 0 }
         
         var count = 0
-        while let foundRange = pdfContent.range(of: department, options: .diacriticInsensitive) {
-            pdfContent = pdfContent.replacingCharacters(in: foundRange, with: "")
+        while let foundRange = content.range(of: department, options: .diacriticInsensitive) {
+            content = content.replacingCharacters(in: foundRange, with: "")
             count += 1
         }
         
         return count
+    }
+    
+    func getPaidApplicantsCount(department: String) -> Int {
+        guard var content = getApplicantsContent(department: department) else { return 0 }
+
+        var count = 0
+        while let foundRange = content.range(of: "\(department) (ЦП)", options: .diacriticInsensitive) {
+            content = content.replacingCharacters(in: foundRange, with: "")
+            count += 1
+        }
+        
+        return count
+    }
+    
+    func getBudgetApplicantsCount(department: String) -> Int {
+        let allApplicantsCount = getApplicantsCount(department: department)
+        let paidApplicantsCount = getPaidApplicantsCount(department: department)
+        
+        return allApplicantsCount - paidApplicantsCount
     }
 }

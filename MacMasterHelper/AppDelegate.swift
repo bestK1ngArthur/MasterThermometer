@@ -22,7 +22,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     private var timer: Timer?
     
+    private var count: Int {
+        return content.getApplicantsCount(department: AppConfig.department)
+    }
+    private var budgetCount: Int {
+        return content.getBudgetApplicantsCount(department: AppConfig.department)
+    }
+    private var paidCount: Int {
+        return content.getPaidApplicantsCount(department: AppConfig.department)
+    }
+    
     private var lastCount: Int = 0
+    private var lastBudgetCount: Int = 0
+    private var lastPaidCount: Int = 0
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -32,6 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarItem.button?.image = NSImage(named: "student")
         statusBarItem.button?.imageScaling = .scaleProportionallyUpOrDown
         statusBarItem.button?.imagePosition = .imageLeading
+        statusBarItem.button?.title = "⌛"
         
         popover.contentViewController = BMSTUController.fromStoryboard()
         
@@ -62,15 +75,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc private func updateCounter() {
-        let count = content.getApplicantsCount(department: AppConfig.department)
         
-        statusBarItem.button?.title = "\(count)"
-
-        if let controller = popover.contentViewController as? BMSTUController {
-            controller.updateCounter(count: count)
+        DispatchQueue.global().async {
+         
+            let count = self.count
+            let budgetCount = self.budgetCount
+            let paidCount = self.paidCount
+            
+            DispatchQueue.main.async {
+                self.statusBarItem.button?.title = "\(count)"
+                
+                if let controller = self.popover.contentViewController as? BMSTUController {
+                    controller.updateCounter(count: count, budgetCount: budgetCount, paidCount: paidCount)
+                }
+            }
+            
+            self.lastCount = count
+            self.lastBudgetCount = budgetCount
+            self.lastPaidCount = paidCount
         }
-        
-        lastCount = count
     }
     
     // MARK: Popover
@@ -80,7 +103,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             
             if let controller = popover.contentViewController as? BMSTUController {
-                controller.updateCounter(count: lastCount)
+                controller.updateCounter(count: lastCount, budgetCount: lastBudgetCount, paidCount: lastPaidCount)
             }
         }
     }

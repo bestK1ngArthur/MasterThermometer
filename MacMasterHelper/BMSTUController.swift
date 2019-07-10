@@ -15,6 +15,8 @@ class BMSTUController: NSViewController {
     @IBOutlet weak var competitionLabel: NSTextField?
     
     private let maxValue: Int = AppConfig.maxStudentsCount
+    private let maxPaid: Int = AppConfig.paidStudentCount
+    private let maxBudget: Int = AppConfig.maxStudentsCount - AppConfig.paidStudentCount
     
     private var formatter: DateFormatter {
         let formatter = DateFormatter()
@@ -35,13 +37,19 @@ class BMSTUController: NSViewController {
         }
     }
     
-    func updateCounter(count: Int) {
+    func updateCounter(count: Int, budgetCount: Int, paidCount: Int) {
         peopleIndicator?.currentValue = count
         
         lastUpdateLabel?.stringValue = "Обновлено в \(formatter.string(from: Date()))"
         
-        let competition = (Float(count) / Float(maxValue) * 100).rounded() / 100
-        competitionLabel?.stringValue = "Конкурс \(competition) на место"
+        let budgetCompetition = (Float(budgetCount) / Float(maxBudget) * 100).rounded() / 100
+        let paidCompetition = (Float(paidCount) / Float(maxPaid) * 100).rounded() / 100
+        
+        competitionLabel?.stringValue =
+        """
+        БП: \(budgetCompetition) на место (\(budgetCount)/\(maxBudget))
+        ЦП: \(paidCompetition) на место (\(paidCount)/\(maxPaid))
+        """
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {

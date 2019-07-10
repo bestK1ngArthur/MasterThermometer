@@ -15,4 +15,7 @@ struct AppConfig {
     
     /// Количество мест в магистратуре
     static let maxStudentsCount: Int = 43
+    
+    /// Количество целевых мест
+    static let paidStudentCount: Int = 8
 }

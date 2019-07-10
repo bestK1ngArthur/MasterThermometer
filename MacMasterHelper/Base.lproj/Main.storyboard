@@ -684,15 +684,18 @@
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController identifier="BMSTUController" storyboardIdentifier="BMSTUController" id="XfG-lQ-9wD" customClass="BMSTUController" customModule="MacMasterHelper" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="220" height="338"/>
+                    <view key="view" misplaced="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="220" height="397"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="GRn-Sc-Jke" customClass="PeopleIndicator" customModule="MacMasterHelper" customModuleProvider="target">
-                                <rect key="frame" x="35" y="55" width="160" height="228"/>
+                                <rect key="frame" x="35" y="83" width="160" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="rBj-6Q-asD"/>
+                                </constraints>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3XA-wy-SnF">
-                                <rect key="frame" x="18" y="301" width="184" height="17"/>
+                                <rect key="frame" x="18" y="341" width="184" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Не обновлено" id="9Fr-tm-fYy">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -701,14 +704,14 @@
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iGR-4F-WNh">
                                 <rect key="frame" x="18" y="20" width="184" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="0" id="nQa-of-YJT">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="0" id="nQa-of-YJT">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AUp-l4-keO">
-                                <rect key="frame" x="194" y="312" width="18" height="18"/>
+                                <rect key="frame" x="194" y="352" width="18" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="maV-Y0-oTu"/>
                                     <constraint firstAttribute="width" constant="18" id="tXh-hV-NjH"/>
@@ -721,19 +724,29 @@
                                     <action selector="closeButtonTapped:" target="XfG-lQ-9wD" id="5fC-FQ-fy4"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Jv-57-cdT">
+                                <rect key="frame" x="18" y="45" width="63" height="18"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Конкурс" id="m1B-dN-ce3">
+                                    <font key="font" metaFont="systemSemibold" size="14"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="GRn-Sc-Jke" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="55" id="1Jd-vS-fhd"/>
                             <constraint firstItem="3XA-wy-SnF" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="3Aq-YC-n4a"/>
-                            <constraint firstAttribute="bottom" secondItem="GRn-Sc-Jke" secondAttribute="bottom" constant="55" id="COI-Tn-6LU"/>
                             <constraint firstItem="iGR-4F-WNh" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="F7R-Uf-bW4"/>
                             <constraint firstAttribute="trailing" secondItem="GRn-Sc-Jke" secondAttribute="trailing" constant="25" id="IaY-nk-q4d"/>
                             <constraint firstItem="3XA-wy-SnF" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="Rkh-0k-kD9"/>
+                            <constraint firstItem="3Jv-57-cdT" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="T7m-2W-FSN"/>
                             <constraint firstAttribute="trailing" secondItem="3XA-wy-SnF" secondAttribute="trailing" constant="20" id="UDN-Wf-1TO"/>
                             <constraint firstItem="GRn-Sc-Jke" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="35" id="Yf3-Km-yJC"/>
                             <constraint firstAttribute="bottom" secondItem="iGR-4F-WNh" secondAttribute="bottom" constant="20" id="ZhA-D8-JV7"/>
                             <constraint firstAttribute="trailing" secondItem="iGR-4F-WNh" secondAttribute="trailing" constant="20" id="hBt-3s-phb"/>
                             <constraint firstAttribute="trailing" secondItem="AUp-l4-keO" secondAttribute="trailing" constant="8" id="ry2-gM-fPw"/>
+                            <constraint firstItem="iGR-4F-WNh" firstAttribute="top" secondItem="3Jv-57-cdT" secondAttribute="bottom" constant="8" id="vre-qM-mAz"/>
+                            <constraint firstItem="3Jv-57-cdT" firstAttribute="top" secondItem="GRn-Sc-Jke" secondAttribute="bottom" constant="20" id="yWG-rM-iz5"/>
                             <constraint firstItem="AUp-l4-keO" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="8" id="zAh-TU-8C6"/>
                         </constraints>
                     </view>
@@ -745,7 +758,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-61" y="684"/>
+            <point key="canvasLocation" x="-61" y="703"/>
         </scene>
     </scenes>
     <resources>
