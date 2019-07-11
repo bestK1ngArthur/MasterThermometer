@@ -11,7 +11,11 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    private let repeatInterval: Double = 10 * 60
+    var config: AppConfig = AppConfig.saved ?? AppConfig.standart
+    
+    private var repeatInterval: TimeInterval {
+        return config.updateInterval
+    }
 
     private let content = BMSTUContent()
     
@@ -23,13 +27,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private var timer: Timer?
     
     private var count: Int {
-        return content.getApplicantsCount(department: AppConfig.department)
+        return content.getApplicantsCount(department: config.department)
     }
     private var budgetCount: Int {
-        return content.getBudgetApplicantsCount(department: AppConfig.department)
+        return content.getBudgetApplicantsCount(department: config.department)
     }
     private var paidCount: Int {
-        return content.getPaidApplicantsCount(department: AppConfig.department)
+        return content.getPaidApplicantsCount(department: config.department)
     }
     
     private var lastCount: Int = 0

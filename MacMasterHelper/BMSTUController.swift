@@ -55,6 +55,9 @@ class BMSTUController: NSViewController {
     @IBAction func closeButtonTapped(_ sender: Any) {
         NSApplication.shared.terminate(sender)
     }
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+    }
 }
 
 extension BMSTUController {
