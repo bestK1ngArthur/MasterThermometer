@@ -26,16 +26,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     private var timer: Timer?
     
-    private var count: Int {
-        return content.getApplicantsCount(department: config.department)
-    }
-    private var budgetCount: Int {
-        return content.getBudgetApplicantsCount(department: config.department)
-    }
-    private var paidCount: Int {
-        return content.getPaidApplicantsCount(department: config.department)
-    }
-    
     private var lastCount: Int = 0
     private var lastBudgetCount: Int = 0
     private var lastPaidCount: Int = 0
@@ -50,14 +40,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusBarItem.button?.imagePosition = .imageLeading
         statusBarItem.button?.title = "⌛"
         
-        popover.contentViewController = BMSTUController.fromStoryboard()
+        let controller = PopoverController.fromStoryboard()
+        controller.delegate = self
+        popover.contentViewController = controller
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(configUpdated(_:)), name: AppConfig.updateNotificationName, object: nil)
         
         startTimer()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
         stopTimer()
+        config.save()
     }
     
     private func startTimer() {
@@ -82,15 +76,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         DispatchQueue.global().async {
          
-            let count = self.count
-            let budgetCount = self.budgetCount
-            let paidCount = self.paidCount
+            let count = self.content.getApplicantsCount(department: self.config.department)
+            let budgetCount = self.content.getBudgetApplicantsCount(department: self.config.department)
+            let paidCount = self.content.getPaidApplicantsCount(department: self.config.department)
             
             DispatchQueue.main.async {
                 self.statusBarItem.button?.title = "\(count)"
                 
-                if let controller = self.popover.contentViewController as? BMSTUController {
-                    controller.updateCounter(count: count, budgetCount: budgetCount, paidCount: paidCount)
+                if let controller = self.popover.contentViewController as? PopoverController {
+                    controller.updateCounter(current: (count: count, budgetCount: budgetCount, paidCount: paidCount), config: self.config)
                 }
             }
             
@@ -106,8 +100,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusBarItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             
-            if let controller = popover.contentViewController as? BMSTUController {
-                controller.updateCounter(count: lastCount, budgetCount: lastBudgetCount, paidCount: lastPaidCount)
+            if let controller = popover.contentViewController as? PopoverController {
+                controller.updateCounter(current: (count: lastCount, budgetCount: lastBudgetCount, paidCount: lastPaidCount), config: self.config)
             }
         }
     }
@@ -115,5 +109,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func closePopover() {
         popover.performClose(statusBarItem.button)
     }
+    
+    // MARK: Config
+    
+    @objc private func configUpdated(_ notification: Notification) {
+        guard let newConfig = notification.object as? AppConfig else { return }
+        config = newConfig
+        reset()
+    }
+    
+    // MARK: Data
+    
+    private func reset() {
+        lastCount = 0
+        lastBudgetCount = 0
+        lastPaidCount = 0
+
+        update()
+    }
+    
+    private func update() {
+        statusBarItem.button?.title = "⌛"
+        timer?.fire()
+    }
 }
 
+extension AppDelegate: BMSTUControllerDelegate {
+    func updateButtonTapped() {
+        update()
+    }
+    
+    func settingsButtonTapped() {
+        closePopover()
+    }
+}

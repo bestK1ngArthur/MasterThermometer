@@ -59,7 +59,7 @@ class PeopleIndicator: NSView {
         gradientLayer.frame = CGRect(origin: .zero,
                                      size: CGSize(width: bounds.width - scaleWidth,
                                                   height: bounds.height))
-        let maxLocation = NSNumber(value: 1 - Float(maxValue) / Float(topValue))
+        let maxLocation = NSNumber(value: Float(maxValue) / Float(topValue))
         gradientLayer.locations = [0.0, maxLocation, 1.0]
         
         // Update labels

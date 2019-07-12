@@ -10,6 +10,8 @@ import Foundation
 
 struct AppConfig {
     
+    static let updateNotificationName: Notification.Name = .init(rawValue: "configUpdated")
+    
     /// Кафедра
     let department: String
     
@@ -18,6 +20,11 @@ struct AppConfig {
     
     /// Количество целевых мест
     let paidStudentCount: Int
+    
+    /// Количество бюджетных мест
+    var budgetStudentsCount: Int {
+        return maxStudentsCount - paidStudentCount
+    }
     
     /// Время до следующего обновления (в секундах)
     let updateInterval: TimeInterval

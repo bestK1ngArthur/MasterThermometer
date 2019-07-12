@@ -8,18 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		6A1497FB22D4DE9600C8494F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1497FA22D4DE9600C8494F /* AppDelegate.swift */; };
-		6A1497FD22D4DE9600C8494F /* BMSTUController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1497FC22D4DE9600C8494F /* BMSTUController.swift */; };
+		6A1497FD22D4DE9600C8494F /* PopoverController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1497FC22D4DE9600C8494F /* PopoverController.swift */; };
 		6A1497FF22D4DE9700C8494F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A1497FE22D4DE9700C8494F /* Assets.xcassets */; };
 		6A14980222D4DE9700C8494F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A14980022D4DE9700C8494F /* Main.storyboard */; };
 		6A14980B22D4DF3200C8494F /* BMSTUContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14980A22D4DF3100C8494F /* BMSTUContent.swift */; };
 		6A14980D22D4F0DA00C8494F /* PeopleIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14980C22D4F0DA00C8494F /* PeopleIndicator.swift */; };
 		6A14980F22D5049500C8494F /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14980E22D5049500C8494F /* AppConfig.swift */; };
+		6A14983122D8BEA600C8494F /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A14983022D8BEA600C8494F /* SettingsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6A1497F722D4DE9600C8494F /* MacMasterHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacMasterHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A1497FA22D4DE9600C8494F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6A1497FC22D4DE9600C8494F /* BMSTUController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMSTUController.swift; sourceTree = "<group>"; };
+		6A1497FC22D4DE9600C8494F /* PopoverController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverController.swift; sourceTree = "<group>"; };
 		6A1497FE22D4DE9700C8494F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A14980122D4DE9700C8494F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A14980322D4DE9700C8494F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -27,6 +28,7 @@
 		6A14980A22D4DF3100C8494F /* BMSTUContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMSTUContent.swift; sourceTree = "<group>"; };
 		6A14980C22D4F0DA00C8494F /* PeopleIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleIndicator.swift; sourceTree = "<group>"; };
 		6A14980E22D5049500C8494F /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		6A14983022D8BEA600C8494F /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +63,8 @@
 			children = (
 				6A14980E22D5049500C8494F /* AppConfig.swift */,
 				6A1497FA22D4DE9600C8494F /* AppDelegate.swift */,
-				6A1497FC22D4DE9600C8494F /* BMSTUController.swift */,
+				6A1497FC22D4DE9600C8494F /* PopoverController.swift */,
+				6A14983022D8BEA600C8494F /* SettingsController.swift */,
 				6A14980A22D4DF3100C8494F /* BMSTUContent.swift */,
 				6A14980C22D4F0DA00C8494F /* PeopleIndicator.swift */,
 				6A1497FE22D4DE9700C8494F /* Assets.xcassets */,
@@ -147,7 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A1497FD22D4DE9600C8494F /* BMSTUController.swift in Sources */,
+				6A14983122D8BEA600C8494F /* SettingsController.swift in Sources */,
+				6A1497FD22D4DE9600C8494F /* PopoverController.swift in Sources */,
 				6A14980F22D5049500C8494F /* AppConfig.swift in Sources */,
 				6A14980B22D4DF3200C8494F /* BMSTUContent.swift in Sources */,
 				6A14980D22D4F0DA00C8494F /* PeopleIndicator.swift in Sources */,

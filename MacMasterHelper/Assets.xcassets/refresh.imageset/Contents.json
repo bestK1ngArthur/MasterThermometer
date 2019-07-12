@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-multiply-60.png"
+      "filename" : "icons8-refresh-90.png"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-multiply-61.png",
+      "filename" : "icons8-refresh-91.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
@@ -16,7 +16,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-multiply-60-2.png",
+      "filename" : "icons8-refresh-90-2.png",
       "appearances" : [
         {
           "appearance" : "luminosity",
