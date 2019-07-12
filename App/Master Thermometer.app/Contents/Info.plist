@@ -8,8 +8,12 @@
 	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>MacMasterHelper</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>ru.bestK1ng.MacMasterHelper</string>
+	<string>ru.bestK1ng.MasterHelper</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -17,7 +21,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>2.0</string>
 	<key>CFBundleSupportedPlatforms</key>
 	<array>
 		<string>MacOSX</string>
@@ -38,6 +42,8 @@
 	<string>1020</string>
 	<key>DTXcodeBuild</key>
 	<string>10E1001</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.education</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>10.14</string>
 	<key>LSUIElement</key>
