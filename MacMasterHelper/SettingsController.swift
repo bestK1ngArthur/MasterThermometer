@@ -16,6 +16,7 @@ class SettingsController: NSViewController {
     @IBOutlet weak var studentsCountField: NSTextField!
     @IBOutlet weak var paidStudentsCountField: NSTextField!
     @IBOutlet weak var timeIntervalField: NSTextField!
+    @IBOutlet weak var notificationsCheckBox: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,7 @@ class SettingsController: NSViewController {
         studentsCountField.integerValue = config.maxStudentsCount
         paidStudentsCountField.integerValue = config.paidStudentCount
         timeIntervalField.doubleValue = config.updateInterval / 60
+        notificationsCheckBox.state = config.needNotifications ? .on : .off
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -37,7 +39,8 @@ class SettingsController: NSViewController {
         let newConfig = AppConfig(department: departmentField.stringValue,
                                   maxStudentsCount: studentsCountField.integerValue,
                                   paidStudentCount: paidStudentsCountField.integerValue,
-                                  updateInterval: timeIntervalField.doubleValue * 60)
+                                  updateInterval: timeIntervalField.doubleValue * 60,
+                                  needNotifications: notificationsCheckBox.state == .on)
         
         let notification = Notification(name: AppConfig.updateNotificationName, object: newConfig, userInfo: nil)
         NotificationCenter.default.post(notification)

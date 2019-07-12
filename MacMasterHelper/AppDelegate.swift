@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import UserNotifications
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -88,6 +89,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 }
             }
             
+            if count != self.lastCount, self.config.needNotifications {
+                self.sendNotification(incomeCount: count - self.lastCount, count: count)
+            }
+            
             self.lastCount = count
             self.lastBudgetCount = budgetCount
             self.lastPaidCount = paidCount
@@ -131,6 +136,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private func update() {
         statusBarItem.button?.title = "⌛"
         timer?.fire()
+    }
+    
+    // MARK: Notifications
+    
+    func sendNotification(incomeCount: Int, count: Int) {
+        
+        let content = UNMutableNotificationContent()
+        content.title = "\((incomeCount > 0) ? "+" : "-")\(abs(incomeCount)) 🤓"
+        content.body = "На данный момент подано \(count) заявлений"
+        
+        let identifier = "\(count)-notification"
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+        print("Message posted: \(content.title) / \(content.body)")
     }
 }
 

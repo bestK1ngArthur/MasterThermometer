@@ -29,11 +29,15 @@ struct AppConfig {
     /// Время до следующего обновления (в секундах)
     let updateInterval: TimeInterval
     
+    /// Флаг для показа уведомлений
+    let needNotifications: Bool
+    
     private enum StorageKey: String {
         case department
         case maxStudentsCount
         case paidStudentCount
         case updateInterval
+        case needNotifications
     }
     
     static var standart: AppConfig {
@@ -41,18 +45,20 @@ struct AppConfig {
             department: "ИУ5",
             maxStudentsCount: 43,
             paidStudentCount: 8,
-            updateInterval: 5 * 60)
+            updateInterval: 5 * 60,
+            needNotifications: false)
     }
     
     static var saved: AppConfig? {
         guard let department = UserDefaults.standard.string(forKey: StorageKey.department.rawValue),
             let maxStudentsCount = UserDefaults.standard.object(forKey: StorageKey.maxStudentsCount.rawValue) as? Int,
             let paidStudentCount = UserDefaults.standard.object(forKey: StorageKey.paidStudentCount.rawValue) as? Int,
-            let updateInterval = UserDefaults.standard.object(forKey: StorageKey.updateInterval.rawValue) as? TimeInterval else {
+            let updateInterval = UserDefaults.standard.object(forKey: StorageKey.updateInterval.rawValue) as? TimeInterval,
+            let needNotifications = UserDefaults.standard.object(forKey: StorageKey.needNotifications.rawValue) as? Bool else {
                 return nil
         }
-
-        return AppConfig(department: department, maxStudentsCount: maxStudentsCount, paidStudentCount: paidStudentCount, updateInterval: updateInterval)
+        
+        return AppConfig(department: department, maxStudentsCount: maxStudentsCount, paidStudentCount: paidStudentCount, updateInterval: updateInterval, needNotifications: needNotifications)
     }
     
     func save() {
