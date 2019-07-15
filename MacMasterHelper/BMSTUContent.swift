@@ -44,7 +44,7 @@ class BMSTUContent {
         guard var content = getApplicantsContent(department: department) else { return 0 }
 
         var count = 0
-        while let foundRange = content.range(of: "\(department) (ЦП)", options: .diacriticInsensitive) {
+        while let foundRange = content.range(of: "\(department) ЦП", options: .diacriticInsensitive) {
             content = content.replacingCharacters(in: foundRange, with: "")
             count += 1
         }
