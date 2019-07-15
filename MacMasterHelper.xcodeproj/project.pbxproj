@@ -295,7 +295,7 @@
 				CODE_SIGN_ENTITLEMENTS = MacMasterHelper/MacMasterHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = CT884K7983;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MacMasterHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -314,7 +314,7 @@
 				CODE_SIGN_ENTITLEMENTS = MacMasterHelper/MacMasterHelper.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = CT884K7983;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MacMasterHelper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
