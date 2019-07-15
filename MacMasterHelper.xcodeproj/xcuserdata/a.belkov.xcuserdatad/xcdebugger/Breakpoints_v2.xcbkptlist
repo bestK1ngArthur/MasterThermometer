@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacMasterHelper/AppDelegate.swift"
-            timestampString = "584877456.2976249"
+            timestampString = "584878814.354439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "AppDelegate"
             landmarkType = "21">
          </BreakpointContent>
