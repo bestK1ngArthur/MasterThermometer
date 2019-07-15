@@ -46,6 +46,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.contentViewController = controller
         
         NotificationCenter.default.addObserver(self, selector: #selector(configUpdated(_:)), name: AppConfig.updateNotificationName, object: nil)
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            // TODO: Handle access
+        }
         
         startTimer()
     }
