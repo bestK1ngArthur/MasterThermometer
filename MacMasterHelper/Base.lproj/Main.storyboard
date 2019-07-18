@@ -685,17 +685,17 @@
             <objects>
                 <viewController identifier="PopoverController" storyboardIdentifier="PopoverController" id="XfG-lQ-9wD" customClass="PopoverController" customModule="MacMasterHelper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="220" height="398"/>
+                        <rect key="frame" x="0.0" y="0.0" width="230" height="398"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="GRn-Sc-Jke" customClass="PeopleIndicator" customModule="MacMasterHelper" customModuleProvider="target">
-                                <rect key="frame" x="35" y="103" width="160" height="240"/>
+                                <rect key="frame" x="35" y="103" width="170" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="rBj-6Q-asD"/>
                                 </constraints>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3XA-wy-SnF">
-                                <rect key="frame" x="18" y="359" width="184" height="19"/>
+                                <rect key="frame" x="18" y="359" width="194" height="19"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="(пусто)" id="9Fr-tm-fYy">
                                     <font key="font" metaFont="systemSemibold" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -703,7 +703,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="iGR-4F-WNh">
-                                <rect key="frame" x="18" y="40" width="184" height="17"/>
+                                <rect key="frame" x="18" y="40" width="194" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="0" id="nQa-of-YJT">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -711,7 +711,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AUp-l4-keO">
-                                <rect key="frame" x="194" y="372" width="16" height="16"/>
+                                <rect key="frame" x="204" y="372" width="16" height="16"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="16" id="maV-Y0-oTu"/>
                                     <constraint firstAttribute="width" constant="16" id="tXh-hV-NjH"/>
@@ -748,9 +748,9 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="uiM-dT-l2c">
-                                <rect key="frame" x="18" y="12" width="184" height="16"/>
+                                <rect key="frame" x="18" y="12" width="194" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Не обновлено" id="nDg-b4-sBy">
-                                    <font key="font" metaFont="system" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" red="0.1176470588" green="0.1176470588" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textFieldCell>

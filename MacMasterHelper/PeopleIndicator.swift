@@ -23,7 +23,7 @@ class PeopleIndicator: NSView {
     }
     
     private let lineHeight: CGFloat = 8
-    private let scaleWidth: CGFloat = 70
+    private let scaleWidth: CGFloat = 78
     
     private let deltaOffset: CGFloat = 4
     private let titleOffset: String = " "
@@ -82,7 +82,7 @@ class PeopleIndicator: NSView {
         
         // Update corners
         
-        gradientLayer.cornerRadius = bounds.width / 3.5
+        gradientLayer.cornerRadius = (bounds.width - scaleWidth) / 2
     }
     
     private var needCreate = true
