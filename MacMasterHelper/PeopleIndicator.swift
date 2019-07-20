@@ -23,7 +23,7 @@ class PeopleIndicator: NSView {
     }
     
     private let lineHeight: CGFloat = 8
-    private let scaleWidth: CGFloat = 78
+    private let scaleWidth: CGFloat = 80
     
     private let deltaOffset: CGFloat = 4
     private let titleOffset: String = " "
